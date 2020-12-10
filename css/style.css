@@ -23,7 +23,8 @@ footer h1 {
 }
 
 .game {
-  width: 80vw;
+  max-width: 80vw;
+  height: 80vw;
   margin: auto;
   display: -ms-flexbox;
   display: flex;
@@ -33,30 +34,51 @@ footer h1 {
       justify-content: space-between;
   -ms-flex-line-pack: justify;
       align-content: space-between;
+  perspective: 1000px;
 }
 
 .card {
-  width: calc(24% - 10px);
-  margin-bottom: 20px;
+  position: relative;
+  -ms-flex-preferred-size: 24%;
+      flex-basis: 24%;
+  height: 24%;
+  margin: 2px;
   border-radius: 6px;
-  box-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px #202020;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
   cursor: pointer;
 }
 
-.front {
-  display: none;
+.card:hover {
+  transform: rotateY(-180deg);
 }
 
 .front,
 .back {
+  position: absolute;
+  display: block;
   width: 100%;
   height: 100%;
   padding: 10px;
   border-radius: 6px;
   background-color: #2475a3;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.card.flip,
+.front {
+  transform: rotateY(180deg);
 }
 
 .overlay {
   display: none;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
 }
 /*# sourceMappingURL=style.css.map */
