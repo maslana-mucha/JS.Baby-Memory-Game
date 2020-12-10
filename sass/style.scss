@@ -43,7 +43,7 @@ footer {
   transform-style: preserve-3d;
   cursor: pointer;
 
-  &:hover {
+  & .flip {
     transform: rotateY(-180deg);
   }
 }

@@ -50,7 +50,7 @@ footer h1 {
   cursor: pointer;
 }
 
-.card:hover {
+.card .flip {
   transform: rotateY(-180deg);
 }
 
