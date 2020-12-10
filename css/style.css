@@ -23,8 +23,8 @@ footer h1 {
 }
 
 .game {
-  max-width: 80vw;
-  height: 80vw;
+  max-width: 65vw;
+  height: 65vw;
   margin: auto;
   display: -ms-flexbox;
   display: flex;
@@ -39,9 +39,9 @@ footer h1 {
 
 .card {
   position: relative;
-  -ms-flex-preferred-size: 24%;
-      flex-basis: 24%;
-  height: 24%;
+  -ms-flex-preferred-size: calc(24% - 10px);
+      flex-basis: calc(24% - 10px);
+  height: calc(24% - 10px);
   margin: 2px;
   border-radius: 6px;
   box-shadow: 2px 2px 2px #202020;
@@ -50,7 +50,7 @@ footer h1 {
   cursor: pointer;
 }
 
-.card .flip {
+.card.flip {
   transform: rotateY(-180deg);
 }
 
