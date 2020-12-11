@@ -18,13 +18,15 @@ footer {
 
 header h1,
 footer h1 {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   text-transform: uppercase;
 }
 
 .game {
-  max-width: 65vw;
-  height: 65vw;
+  width: 55vw;
+  max-width: 800px;
+  height: 55vw;
+  max-height: 800px;
   margin: auto;
   display: -ms-flexbox;
   display: flex;
@@ -50,7 +52,8 @@ footer h1 {
   cursor: pointer;
 }
 
-.card.flip {
+.card.flip,
+.card .front {
   transform: rotateY(-180deg);
 }
 
@@ -67,13 +70,46 @@ footer h1 {
           backface-visibility: hidden;
 }
 
-.card.flip,
-.front {
-  transform: rotateY(180deg);
+.result {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
 }
 
-.overlay {
-  display: none;
+.result.active {
+  display: block;
+}
+
+.game-over {
+  max-width: 400px;
+  margin: 120px auto;
+  padding: 20px;
+  background-color: #264e70;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.game-over p {
+  margin: 20px 0;
+}
+
+.game-over .restart {
+  margin: 20px auto;
+  width: 100px;
+  border-radius: 6px;
+  background: #48d688;
+  padding: 10px;
+  cursor: pointer;
+}
+
+footer {
+  font-size: 14px;
 }
 
 footer a {
