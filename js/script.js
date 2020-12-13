@@ -1,4 +1,6 @@
 const cards = document.querySelectorAll('.card');
+let cardsArr = [...cards];
+// console.log(cardsArr);
 
 let activeCard = '';
 const activeCards = [];
@@ -28,6 +30,7 @@ const timer = () => {
 };
 
 function matchCards() {
+  console.log('match!');
   let isMatched = activeCards[0].dataset.name === activeCards[1].dataset.name;
   isMatched
     ? gameResult++
@@ -35,7 +38,9 @@ function matchCards() {
 
   activeCard = '';
   activeCards.length = 0;
-  cards.forEach((card) => card.addEventListener('click', showCards));
+  cardsArr
+    .filter((card) => !card.classList.contains('flip'))
+    .forEach((card) => card.addEventListener('click', showCards));
 
   if (gameResult === 8) {
     clearInterval(intervalIndex);
@@ -43,7 +48,9 @@ function matchCards() {
     document.querySelector('.player-time').textContent = `${
       minutes < 10 ? `0${minutes}` : minutes
     }:${seconds < 10 ? `0${seconds}` : seconds}`;
-    const btnRestart = document.querySelector('.restart');
+    document.querySelector('.restart').addEventListener('click', () => {
+      window.location.reload(true);
+    });
   }
 }
 
@@ -76,10 +83,6 @@ function shuffle() {
 }
 
 shuffle();
-
-document.querySelector('.restart').addEventListener('click', () => {
-  window.location.reload(true);
-});
 
 document.addEventListener(
   'click',
