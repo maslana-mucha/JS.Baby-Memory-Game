@@ -37,12 +37,13 @@ function matchCards() {
   activeCards.length = 0;
   cards.forEach((card) => card.addEventListener('click', showCards));
 
-  if (gameResult === 1) {
+  if (gameResult === 8) {
     clearInterval(intervalIndex);
     document.querySelector('.result').classList.add('active');
     document.querySelector('.player-time').textContent = `${
       minutes < 10 ? `0${minutes}` : minutes
     }:${seconds < 10 ? `0${seconds}` : seconds}`;
+    const btnRestart = document.querySelector('.restart');
   }
 }
 
@@ -66,6 +67,19 @@ function showCards() {
 }
 
 cards.forEach((card) => card.addEventListener('click', showCards));
+
+function shuffle() {
+  cards.forEach((card) => {
+    let position = Math.floor(Math.random() * 16);
+    card.style.order = position;
+  });
+}
+
+shuffle();
+
+document.querySelector('.restart').addEventListener('click', () => {
+  window.location.reload(true);
+});
 
 document.addEventListener(
   'click',
