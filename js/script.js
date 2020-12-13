@@ -1,16 +1,16 @@
 const cards = document.querySelectorAll('.card');
-const time = document.querySelector('.timer');
 
 let activeCard = '';
 const activeCards = [];
 let gameResult = 0;
+
+let intervalIndex;
 let seconds = 0;
 let minutes = 0;
 
-function timer() {
+const timer = () => {
   const start = () => {
     seconds++;
-    console.log(seconds);
     if (seconds == 60) {
       minutes++;
       seconds = 0;
@@ -19,30 +19,30 @@ function timer() {
       seconds = 0;
     }
 
-    time.textContent = `${minutes < 10 ? `0${minutes}` : minutes}:${
-      seconds < 10 ? `0${seconds}` : seconds
-    }`;
+    document.querySelector('.timer').textContent = `${
+      minutes < 10 ? `0${minutes}` : minutes
+    }:${seconds < 10 ? `0${seconds}` : seconds}`;
   };
 
-  id = setInterval(start, 1000);
-}
+  intervalIndex = setInterval(start, 1200);
+};
 
 function matchCards() {
   let isMatched = activeCards[0].dataset.name === activeCards[1].dataset.name;
-  if (!isMatched) {
-    activeCards.forEach((card) => card.classList.remove('flip'));
-    console.log('nie ma pary!');
-  } else if (isMatched) {
-    console.log('trafiony-zatopiony');
-    gameResult++;
-  }
+  isMatched
+    ? gameResult++
+    : activeCards.forEach((card) => card.classList.remove('flip'));
 
   activeCard = '';
   activeCards.length = 0;
   cards.forEach((card) => card.addEventListener('click', showCards));
 
-  if (gameResult === 8) {
-    finishGame();
+  if (gameResult === 1) {
+    clearInterval(intervalIndex);
+    document.querySelector('.result').classList.add('active');
+    document.querySelector('.player-time').textContent = `${
+      minutes < 10 ? `0${minutes}` : minutes
+    }:${seconds < 10 ? `0${seconds}` : seconds}`;
   }
 }
 
@@ -62,20 +62,15 @@ function showCards() {
     activeCards[1] = activeCard;
   }
 
-  setTimeout(matchCards, 1200);
+  setTimeout(matchCards, 1000);
 }
-
-const finishGame = () => {
-  console.log('skończyłeś grę');
-  document.querySelector('.result').classList.add('active');
-};
 
 cards.forEach((card) => card.addEventListener('click', showCards));
 
 document.addEventListener(
   'click',
   (event) => {
-    console.log(event);
+    // console.log(event);
     if (event.target.matches('.back')) {
       timer();
     }
