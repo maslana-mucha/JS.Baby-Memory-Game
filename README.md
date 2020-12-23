@@ -10,4 +10,4 @@ Simple project based on a popular wideworld memory game. There are 8 pairs of pl
 
 *Launch*
 --------------
-To wiev this project locally, download the repository and start the watcher with npm run watch in a terminal.
+To view this project locally, download the repository and start the watcher with npm run watch in a terminal.
