@@ -121,4 +121,25 @@ footer a {
   color: white;
   font-weight: 600;
 }
+
+@media (max-width: 480px) {
+  header,
+  footer {
+    margin-top: 10vh;
+    margin-bottom: 20px;
+  }
+  header h1,
+  footer h1 {
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+  .game {
+    width: 90vw;
+    height: 90vw;
+  }
+  .front,
+  .back {
+    padding: 10px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
