@@ -115,7 +115,7 @@ footer {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   header,
   footer {
     margin-top: 10vh;
@@ -126,6 +126,7 @@ footer {
       font-size: 25px;
     }
   }
+
   .game {
     width: 90vw;
     height: 90vw;
