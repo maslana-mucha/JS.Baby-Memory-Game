@@ -1,5 +1,5 @@
 {
-  "name": "Aikido-p1",
+  "name": "Memory",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -39,11 +39,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maslana-mucha/HTML.CSS.Non-commercial.AikidoClub"
+    "url": "git+https://github.com/maslana-mucha/JS.Baby-Memory-Game"
   },
   "bugs": {
-    "url": "https://github.com/maslana-mucha/HTML.CSS.Non-commercial.AikidoClub/issues"
+    "url": "https://github.com/maslana-mucha/JS.Baby-Memory-Game/issues"
   },
-  "homepage": "https://github.com/maslana-mucha/HTML.CSS.Non-commercial.AikidoClub#readme",
+  "homepage": "https://maslana-mucha.github.io/JS.Baby-Memory-Game/",
   "description": ""
 }
