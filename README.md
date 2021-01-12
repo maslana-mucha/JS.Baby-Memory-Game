@@ -10,4 +10,4 @@ Simple project based on a popular wideworld memory game. There are 8 pairs of pl
 
 *Launch*
 --------------
-To view this project locally, download the repository and start the watcher with npm run watch in a terminal.
+https://maslana-mucha.github.io/JS.Baby-Memory-Game/
