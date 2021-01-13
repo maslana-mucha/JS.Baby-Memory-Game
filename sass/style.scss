@@ -11,8 +11,7 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-header,
-footer {
+header {
   margin: 20px;
 
   h1 {
@@ -106,6 +105,7 @@ footer {
 }
 
 footer {
+  margin: 20px;
   font-size: 14px;
 
   a {
@@ -115,11 +115,9 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
-  header,
-  footer {
-    margin-top: 10vh;
-    margin-bottom: 20px;
+@media (max-width: 767px) {
+  header {
+    margin: 8vh 0 5vh 0;
 
     h1 {
       margin-bottom: 20px;
@@ -135,5 +133,42 @@ footer {
   .front,
   .back {
     padding: 10px;
+  }
+
+  footer {
+    width: 100%;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 768px) {
+  header {
+    margin: 8vh 0 5vh 0;
+
+    h1 {
+      margin-bottom: 20px;
+      font-size: 30px;
+    }
+  }
+
+  .game {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .front,
+  .back {
+    padding: 10px;
+  }
+
+  footer {
+    width: 100%;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    font-size: 16px;
   }
 }
