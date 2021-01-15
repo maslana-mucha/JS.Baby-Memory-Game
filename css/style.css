@@ -146,7 +146,7 @@ footer a {
   }
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1025px) {
   header {
     margin: 8vh 0 5vh 0;
   }
