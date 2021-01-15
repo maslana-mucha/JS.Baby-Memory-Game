@@ -100,16 +100,11 @@ function createCards() {
     div.innerHTML = `
       <img class="front" src="./img/${card}.png" alt="${card}" />
       <img class="back" src="./img/baby-game.png" alt="Card" />`;
-    document.querySelector('section').appendChild(div);
-  }
 
-  const newDivs = document.querySelectorAll('.game div');
-  newDivs.forEach((div) => {
+    document.querySelector('section').appendChild(div);
     div.classList.add('card');
-    for (let card of cards) {
-      div.setAttribute('data-name', `${card}`);
-    }
-  });
+    div.setAttribute('data-name', `${card}`);
+  }
 }
 
 createCards();
