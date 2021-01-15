@@ -1,14 +1,12 @@
 const cards = document.querySelectorAll('.card');
-let cardsArr = [...cards];
-// console.log(cardsArr);
 
-let activeCard = '';
 const activeCards = [];
 let gameResult = 0;
-
 let intervalIndex;
 let seconds = 0;
 let minutes = 0;
+
+// Timer function
 
 const timer = () => {
   const start = () => {
@@ -29,18 +27,20 @@ const timer = () => {
   intervalIndex = setInterval(start, 1200);
 };
 
+// Check if cards matched
+
 function matchCards() {
-  console.log('match!');
   let isMatched = activeCards[0].dataset.name === activeCards[1].dataset.name;
   isMatched
     ? gameResult++
     : activeCards.forEach((card) => card.classList.remove('flip'));
 
-  activeCard = '';
   activeCards.length = 0;
-  cardsArr
-    .filter((card) => !card.classList.contains('flip'))
-    .forEach((card) => card.addEventListener('click', showCards));
+  cards.forEach((card) =>
+    !card.classList.contains('flip')
+      ? card.addEventListener('click', showCards)
+      : null
+  );
 
   if (gameResult === 8) {
     clearInterval(intervalIndex);
@@ -54,8 +54,10 @@ function matchCards() {
   }
 }
 
+// Open unopened cards
+
 function showCards() {
-  activeCard = this;
+  const activeCard = this;
   activeCard.classList.add('flip');
 
   if (activeCard == activeCards[0]) {
@@ -73,21 +75,22 @@ function showCards() {
   setTimeout(matchCards, 1000);
 }
 
-cards.forEach((card) => card.addEventListener('click', showCards));
+// Start/Restart the game: shuffle, addEventListeners to all cards and set timer
 
 function shuffle() {
   cards.forEach((card) => {
-    let position = Math.floor(Math.random() * 16);
+    const position = Math.floor(Math.random() * 16);
     card.style.order = position;
   });
 }
 
 shuffle();
 
+cards.forEach((card) => card.addEventListener('click', showCards));
+
 document.addEventListener(
   'click',
   (event) => {
-    // console.log(event);
     if (event.target.matches('.back')) {
       timer();
     }
