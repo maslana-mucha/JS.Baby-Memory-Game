@@ -1,5 +1,3 @@
-const cards = document.querySelectorAll('.card');
-
 const activeCards = [];
 let gameResult = 0;
 let intervalIndex;
@@ -75,7 +73,49 @@ function showCards() {
   setTimeout(matchCards, 1000);
 }
 
-// Start/Restart the game: shuffle, addEventListeners to all cards and set timer
+// Start/Restart the game: createCards, shuffle, addEventListeners to all cards and set a timer
+
+function createCards() {
+  const cards = [
+    'blocks',
+    'blocks',
+    'potty',
+    'potty',
+    'bottle',
+    'bottle',
+    'bodysuit',
+    'bodysuit',
+    'crib',
+    'crib',
+    'pacifier',
+    'pacifier',
+    'rubber-duck',
+    'rubber-duck',
+    'teddy-bear',
+    'teddy-bear',
+  ];
+
+  for (let card of cards) {
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <img class="front" src="./img/${card}.png" alt="${card}" />
+      <img class="back" src="./img/baby-game.png" alt="Card" />`;
+    document.querySelector('section').appendChild(div);
+  }
+
+  const newDivs = document.querySelectorAll('.game div');
+  newDivs.forEach((div) => {
+    div.classList.add('card');
+    for (let card of cards) {
+      div.setAttribute('data-name', `${card}`);
+    }
+  });
+}
+
+createCards();
+
+const cards = document.querySelectorAll('.card');
+cards.forEach((card) => card.addEventListener('click', showCards));
 
 function shuffle() {
   cards.forEach((card) => {
@@ -85,8 +125,6 @@ function shuffle() {
 }
 
 shuffle();
-
-cards.forEach((card) => card.addEventListener('click', showCards));
 
 document.addEventListener(
   'click',
